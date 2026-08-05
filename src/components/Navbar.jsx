@@ -22,31 +22,20 @@ const Navbar = () => {
     <div className="navbar bg-[#f5f0eb]/90 backdrop-blur-md px-4 sm:px-6 lg:px-8 sticky top-0 z-50 border-b border-[#2d3e2f]/10 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-[#2d3e2f] hover:bg-[#2d3e2f]/10 mr-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16" />
-            </svg>
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden hover:bg-transparent h-auto p-1 pl-0">
+            <img src={logo} alt="Moho Menu" className="h-12 sm:h-14 drop-shadow-sm cursor-pointer" />
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-[#f5f0eb] rounded-xl z-[1] mt-4 w-56 p-3 shadow-2xl border border-[#2d3e2f]/10 gap-1">
+            className="menu menu-sm dropdown-content bg-[#f5f0eb] rounded-xl z-[1] mt-2 w-56 p-3 shadow-2xl border border-[#2d3e2f]/10 gap-1">
             <li><NavLink to="/" className={mobileNavLinkClass}>Home</NavLink></li>
             <li><NavLink to="/products" className={mobileNavLinkClass}>Menu</NavLink></li>
             <li><NavLink to="/about" className={mobileNavLinkClass}>About Us</NavLink></li>
             <li><NavLink to="/contact" className={mobileNavLinkClass}>Contact</NavLink></li>
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost hover:bg-transparent h-auto p-1">
-          <img src={logo} alt="Moho" className="h-12 sm:h-14 md:h-16 drop-shadow-sm" />
+        <NavLink to="/" className="btn btn-ghost hover:bg-transparent h-auto p-1 hidden lg:flex">
+          <img src={logo} alt="Moho" className="h-16 drop-shadow-sm" />
         </NavLink>
       </div>
       
