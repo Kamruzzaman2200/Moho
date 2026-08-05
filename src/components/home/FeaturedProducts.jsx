@@ -1,4 +1,5 @@
 import ProductCard from "../ProductCard"
+import { Link } from "react-router-dom"
 
 const featuredItems = [
     {
@@ -59,12 +60,12 @@ const FeaturedProducts = () => {
 
             {/* CTA Button */}
             <div className="mt-12 sm:mt-16 text-center">
-                <a 
-                    href="/products" 
+                <Link 
+                    to="/products" 
                     className="inline-block px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-[#2d3e2f] text-[#2d3e2f] text-xs sm:text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-[#2d3e2f] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                 >
                     View Full Menu
-                </a>
+                </Link>
             </div>
         </div>
     </div>
