@@ -66,25 +66,26 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      {
-        user? <div><UserDropdown/></div> :
-        <div className="navbar-end">
-        <div className="flex gap-3 items-center">
-          <NavLink 
-            to="/login" 
-            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#2d3e2f] text-[#2d3e2f] text-sm font-semibold uppercase tracking-wider rounded-full hover:bg-[#2d3e2f] hover:text-white transition-colors duration-300"
-          >
-            Login
-          </NavLink>
-          <NavLink 
-            to="/register" 
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-[#2d3e2f] text-white text-sm font-semibold uppercase tracking-wider rounded-full border-2 border-[#2d3e2f] hover:bg-transparent hover:text-[#2d3e2f] transition-colors duration-300"
-          >
-            Register
-          </NavLink>
-        </div>
+      <div className="navbar-end">
+        {user ? (
+          <UserDropdown />
+        ) : (
+          <div className="flex gap-3 items-center">
+            <NavLink 
+              to="/login" 
+              className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#2d3e2f] text-[#2d3e2f] text-sm font-semibold uppercase tracking-wider rounded-full hover:bg-[#2d3e2f] hover:text-white transition-colors duration-300"
+            >
+              Login
+            </NavLink>
+            <NavLink 
+              to="/register" 
+              className="inline-flex items-center justify-center px-6 py-2.5 bg-[#2d3e2f] text-white text-sm font-semibold uppercase tracking-wider rounded-full border-2 border-[#2d3e2f] hover:bg-transparent hover:text-[#2d3e2f] transition-colors duration-300"
+            >
+              Register
+            </NavLink>
+          </div>
+        )}
       </div>
-      }
       
     </div>
   )
