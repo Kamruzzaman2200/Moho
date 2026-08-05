@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom"
+import logo from "../assets/logo.png"
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 px-2 sm:px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,18 +23,15 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/products">Products</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </div>
-        <h2 className="btn btn-ghost text-xl">Moho</h2>
+        <NavLink to="/" className="btn btn-ghost h-auto p-1">
+          <img src={logo} alt="Moho" className="h-10 sm:h-12 md:h-14" />
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -52,12 +50,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="flex gap-2 items-center ">
+        <div className="flex gap-1 sm:gap-2 items-center">
           <NavLink to="/login">
-          <button className="btn btn-primary btn-outline">Login</button>
+            <button className="btn btn-primary btn-outline btn-sm sm:btn-md">Login</button>
           </NavLink>
           <NavLink to="/register">
-            <button className="btn btn-primary">Register</button>       
+            <button className="btn btn-primary btn-sm sm:btn-md">Register</button>
           </NavLink>
         </div>
       </div>

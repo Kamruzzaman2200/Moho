@@ -6,17 +6,17 @@ const Home = () => {
     return (
         <div>
             <Banner />
-            <div className="container mx-auto">
-                <div className="my-16">
-                    <h1 className="text-4xl font-bold text-center">Featured Products</h1>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="my-10 md:my-16">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">Featured Products</h1>
                     <FeaturedProducts />
                 </div>
-                <div className="my-16">
-                    <h1 className="text-4xl font-bold text-center">Our Customers Say</h1>
+                <div className="my-10 md:my-16">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">Our Customers Say</h1>
                     <UserReview />
                 </div>
-                <div className="my-16">
-                    <h1 className="text-4xl font-bold text-center">Frequently Asked Questions</h1>
+                <div className="my-10 md:my-16">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">Frequently Asked Questions</h1>
                     <Accordion />
                 </div>
             </div>

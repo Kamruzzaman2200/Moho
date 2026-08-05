@@ -1,14 +1,11 @@
 import Review from "./Review"
 const UserReview = () => {
     return (
-        <div>
-
-            <div className="lg:flex items-center justify-between gap-4">
-                <Review></Review>
-                <Review></Review>
-                <Review></Review>
-                <Review></Review>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+            <Review></Review>
+            <Review></Review>
+            <Review></Review>
+            <Review></Review>
         </div>
     )
 }
