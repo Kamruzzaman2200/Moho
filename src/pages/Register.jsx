@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import loginRegImg from "../assets/login reg img.png"
 import useAuth from "../hooks/useAuth"
 import { useForm } from "react-hook-form"
@@ -7,13 +7,14 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 const {CreateUser, GoogleLogin} = useAuth();
-const { register, handleSubmit, watch, formState: { errors } } = useForm()
+const { register, handleSubmit, watch, formState: { errors } } = useForm();
+const navigate = useNavigate();
 
   const onSubmit = (data) => {
     CreateUser(data.email, data.password)
     .then((userCredential) => {
         console.log("User created:", userCredential.user);
-        alert("Account created successfully!");
+        navigate("/");
     })
     .catch((error) => {
         console.error("Error creating user:", error);
@@ -25,7 +26,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm()
     GoogleLogin()
     .then((result) => {
         console.log("Google Login successful:", result.user);
-        alert("Logged in with Google successfully!");
+        navigate("/");
     })
     .catch((error) => {
         console.error("Error with Google Login:", error);

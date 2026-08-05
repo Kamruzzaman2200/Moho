@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom"
 import logo from "../assets/logo.png"
+import useAuth from "../hooks/useAuth"
+import { UserDropdown } from "./home/UserDropdown";
 
 const Navbar = () => {
+
+  const {user} = useAuth();
+
   // Common style for NavLinks to handle active state dynamically
   const navLinkClass = ({ isActive }) =>
     `text-sm font-medium uppercase tracking-wider transition-colors duration-300 bg-transparent hover:bg-transparent focus:bg-transparent ${
@@ -61,8 +66,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      
-      <div className="navbar-end">
+      {
+        user? <div><UserDropdown/></div> :
+        <div className="navbar-end">
         <div className="flex gap-3 items-center">
           <NavLink 
             to="/login" 
@@ -78,6 +84,8 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
+      }
+      
     </div>
   )
 }
