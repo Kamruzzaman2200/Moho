@@ -2,14 +2,25 @@ import { NavLink } from "react-router-dom"
 import logo from "../assets/logo.png"
 
 const Navbar = () => {
+  // Common style for NavLinks to handle active state dynamically
+  const navLinkClass = ({ isActive }) =>
+    `text-sm font-medium uppercase tracking-wider transition-colors duration-300 bg-transparent hover:bg-transparent focus:bg-transparent ${
+      isActive ? "text-[#d4a574]" : "text-[#2d3e2f] hover:text-[#d4a574]"
+    }`
+
+  const mobileNavLinkClass = ({ isActive }) =>
+    `text-sm font-medium uppercase tracking-wider transition-colors duration-300 py-3 ${
+      isActive ? "text-[#d4a574] bg-[#2d3e2f]/5 rounded-lg" : "text-[#2d3e2f] hover:text-[#d4a574] hover:bg-[#2d3e2f]/5 rounded-lg"
+    }`
+
   return (
-    <div className="navbar bg-base-100 px-2 sm:px-4">
+    <div className="navbar bg-[#f5f0eb]/90 backdrop-blur-md px-4 sm:px-6 lg:px-8 sticky top-0 z-50 border-b border-[#2d3e2f]/10 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-[#2d3e2f] hover:bg-[#2d3e2f]/10 mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor">
@@ -22,40 +33,48 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/products">Products</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
+            className="menu menu-sm dropdown-content bg-[#f5f0eb] rounded-xl z-[1] mt-4 w-56 p-3 shadow-2xl border border-[#2d3e2f]/10 gap-1">
+            <li><NavLink to="/" className={mobileNavLinkClass}>Home</NavLink></li>
+            <li><NavLink to="/products" className={mobileNavLinkClass}>Menu</NavLink></li>
+            <li><NavLink to="/about" className={mobileNavLinkClass}>About Us</NavLink></li>
+            <li><NavLink to="/contact" className={mobileNavLinkClass}>Contact</NavLink></li>
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost h-auto p-1">
-          <img src={logo} alt="Moho" className="h-10 sm:h-12 md:h-14" />
+        <NavLink to="/" className="btn btn-ghost hover:bg-transparent h-auto p-1">
+          <img src={logo} alt="Moho" className="h-12 sm:h-14 md:h-16 drop-shadow-sm" />
         </NavLink>
       </div>
+      
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 gap-6">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className={navLinkClass}>Home</NavLink>
           </li>
           <li>
-            <NavLink to="/products">Products</NavLink>
+            <NavLink to="/products" className={navLinkClass}>Menu</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
           </li>
         </ul>
       </div>
+      
       <div className="navbar-end">
-        <div className="flex gap-1 sm:gap-2 items-center">
-          <NavLink to="/login">
-            <button className="btn btn-primary btn-outline btn-sm sm:btn-md">Login</button>
+        <div className="flex gap-3 items-center">
+          <NavLink 
+            to="/login" 
+            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#2d3e2f] text-[#2d3e2f] text-sm font-semibold uppercase tracking-wider rounded-full hover:bg-[#2d3e2f] hover:text-white transition-colors duration-300"
+          >
+            Login
           </NavLink>
-          <NavLink to="/register">
-            <button className="btn btn-primary btn-sm sm:btn-md">Register</button>
+          <NavLink 
+            to="/register" 
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-[#2d3e2f] text-white text-sm font-semibold uppercase tracking-wider rounded-full border-2 border-[#2d3e2f] hover:bg-transparent hover:text-[#2d3e2f] transition-colors duration-300"
+          >
+            Register
           </NavLink>
         </div>
       </div>
