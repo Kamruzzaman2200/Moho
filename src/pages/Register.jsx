@@ -7,13 +7,9 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 const {CreateUser, GoogleLogin} = useAuth();
-const { register, handleSubmit, formState: { errors } } = useForm()
+const { register, handleSubmit, watch, formState: { errors } } = useForm()
 
   const onSubmit = (data) => {
-    if (data.password !== data.confirmPassword) {
-        alert("Passwords do not match!");
-        return;
-    }
     CreateUser(data.email, data.password)
     .then((userCredential) => {
         console.log("User created:", userCredential.user);
@@ -117,7 +113,14 @@ const { register, handleSubmit, formState: { errors } } = useForm()
                   type={showConfirmPassword ? "text" : "password"} 
                   placeholder="••••••••" 
                   className="w-full px-4 py-3 rounded-xl border border-[#2d3e2f]/10 focus:border-[#d4a574] focus:ring-1 focus:ring-[#d4a574] outline-none transition-colors bg-[#f5f0eb]/30 pr-12" 
-                  {...register("confirmPassword", { required: "Please confirm your password" })}
+                  {...register("confirmPassword", { 
+                    required: "Please confirm your password",
+                    validate: (val) => {
+                      if (watch('password') != val) {
+                        return "Passwords do not match";
+                      }
+                    }
+                  })}
                 />
                 <button 
                   type="button"
