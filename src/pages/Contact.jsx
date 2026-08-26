@@ -57,7 +57,7 @@ const Contact = () => {
 
               {/* Phone */}
               <a
-                href="tel:+8801720097629"
+                href="tel:+8801671500132"
                 className="flex items-start gap-4 p-5 rounded-2xl bg-base-200/50 hover:bg-base-200 transition-colors duration-300 group block"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#2d3e2f] flex items-center justify-center shrink-0 group-hover:bg-[#d4a574] transition-colors duration-300">
@@ -67,7 +67,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#2d3e2f] mb-1">Call Us</h3>
-                  <p className="text-base-content/60 text-sm">+880 1720-097629</p>
+                  <p className="text-base-content/60 text-sm">+880 1671-500132</p>
                   <p className="text-base-content/40 text-xs mt-1">Available daily</p>
                 </div>
               </a>
@@ -205,7 +205,7 @@ const Contact = () => {
             Book a table or walk in — we're always happy to welcome you.
           </p>
           <a
-            href="tel:+8801720097629"
+            href="tel:+8801671500132"
             className="inline-flex items-center gap-2 px-8 py-3 bg-[#2d3e2f] text-white rounded-full hover:bg-[#1e2b20] transition-colors duration-300 text-sm uppercase tracking-wider"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

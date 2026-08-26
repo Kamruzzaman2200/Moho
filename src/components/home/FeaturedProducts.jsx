@@ -1,38 +1,45 @@
 import ProductCard from "../ProductCard"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+
+import mohoSpecialPlatter from "../../assets/Menu/Moho Special Platter.png"
+import mohoSpecialRamen from "../../assets/Menu/Moho Special Ramen.png"
+import brownieBliss from "../../assets/Menu/Brownie Bliss with Vanilla Ice Cream.png"
+import mohoSpecialBurger from "../../assets/Menu/Moho Special Burger (with Fries & Coke).png"
 
 const featuredItems = [
     {
         id: 1,
-        title: "Grilled Salmon",
-        description: "Fresh Atlantic salmon with lemon butter sauce, served with roasted asparagus and garlic herb quinoa.",
-        price: "৳ 850",
-        image: "https://images.unsplash.com/photo-1485921325833-c519f76c4927"
+        title: "Moho Special Platter",
+        description: "Mix fried rice, peri peri chicken, BBQ wings (2pcs), Chinese vegetable, raita. A complete Pan-Asian experience.",
+        price: "৳ 299",
+        image: mohoSpecialPlatter
     },
     {
         id: 2,
-        title: "Beef Steak",
-        description: "Premium ribeye steak cooked to perfection with garlic herb butter, alongside rustic mashed potatoes.",
-        price: "৳ 1250",
-        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1"
+        title: "Moho Special Ramen",
+        description: "Our signature ramen bowl with rich broth, tender chicken, fresh vegetables, and perfectly cooked noodles.",
+        price: "৳ 350",
+        image: mohoSpecialRamen
     },
     {
         id: 3,
-        title: "Pasta Carbonara",
-        description: "Classic Italian pasta with a rich, creamy egg sauce, crispy pancetta, and aged parmesan cheese.",
-        price: "৳ 650",
-        image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601"
+        title: "Brownie Bliss with Vanilla Ice Cream",
+        description: "Warm Chocolate Brownie topped with creamy Vanilla Ice Cream and a generous Chocolate Drizzle.",
+        price: "৳ 249",
+        image: brownieBliss
     },
     {
         id: 4,
-        title: "Avocado Toast",
-        description: "Artisan sourdough topped with smashed avocado, a perfectly poached egg, and chili flakes.",
-        price: "৳ 450",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8"
+        title: "Moho Special Burger",
+        description: "Our signature burger loaded with juicy chicken patty, fresh veggies, and special sauce, served with fries & coke.",
+        price: "৳ 250",
+        image: mohoSpecialBurger
     }
 ]
 
 const FeaturedProducts = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#f5f0eb] py-16 sm:py-24 border-b border-[#2d3e2f]/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +61,7 @@ const FeaturedProducts = () => {
             {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 {featuredItems.map(item => (
-                    <ProductCard key={item.id} item={item} />
+                    <ProductCard key={item.id} item={item} onClick={() => navigate('/products')} />
                 ))}
             </div>
 

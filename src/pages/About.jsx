@@ -173,7 +173,7 @@ const About = () => {
               Visit Us
             </NavLink>
             <a
-              href="tel:+8801720097629"
+              href="tel:+8801671500132"
               className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#2d3e2f] text-[#2d3e2f] rounded-full hover:bg-[#2d3e2f] hover:text-white transition-all duration-300 text-sm uppercase tracking-wider"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

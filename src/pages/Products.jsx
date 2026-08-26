@@ -1,615 +1,191 @@
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 
+// Starters
+import frenchFries from "../assets/Menu/French Fries.png";
+import chickenFry from "../assets/Menu/Chicken Fry (1 pcs).png";
+import bbqWings from "../assets/Menu/BBQ Wings (6 pcs).png";
+import crispyWings from "../assets/Menu/Crispy Wings (6 pcs).png";
+import chickenLolipop from "../assets/Menu/Chicken Lolipop (6 pcs).png";
+import friedWonton from "../assets/Menu/Fride Wonton (6 pcs).png";
+import cheezyNachos from "../assets/Menu/Cheezy Nachos.png";
+import thaiFriedChicken from "../assets/Menu/Thai Fried Chicken (4 pcs).png";
+
+// Soup
+import thaiThickSoup from "../assets/Menu/Thai Thick Soup.png";
+import creamMushroomSoup from "../assets/Menu/Cream of Mushroom Soup.png";
+
+// Burger
+import chickenBurger from "../assets/Menu/Chicken Burger.png";
+import chickenCheeseBurger from "../assets/Menu/Chicken Cheese Burger.png";
+import bbqBurger from "../assets/Menu/BBQ Burger.png";
+import mohoSpecialBurger from "../assets/Menu/Moho Special Burger (with Fries & Coke).png";
+import chickenSandwich from "../assets/Menu/Chicken Sandwich (with Fries & Coke).png";
+
+// Momos
+import chickenMomo from "../assets/Menu/Chicken Momo (6 pcs).png";
+import cheeseMomo from "../assets/Menu/Cheese Momo (6 pcs).png";
+import chiliOilMomo from "../assets/Menu/Chili Oil Momo (6 pcs).png";
+
+// Meatbox
+import chickenMeatbox from "../assets/Menu/Chicken Meatbox.png";
+import smokySausageMeatbox from "../assets/Menu/Smoky Sausage Meatbox.png";
+import mohoSpecialBBQMeatbox from "../assets/Menu/Moho Special BBQ Meatbox.png";
+
+// Pasta
+import pastaBasta from "../assets/Menu/Pasta Basta.png";
+import creamyAlfredoPasta from "../assets/Menu/Creamy Alfredo Pasta.png";
+import mohoSpecialPasta from "../assets/Menu/Moho Special Pasta.png";
+
+// Ramen
+import spicyKoreanRamen from "../assets/Menu/Spicy Korean Ramen.png";
+import heroshiRamen from "../assets/Menu/Heroshi Ramen.png";
+import mohoSpecialRamen from "../assets/Menu/Moho Special Ramen.png";
+
+// Chowmein
+import regularChowmein from "../assets/Menu/Regular Chowmein.png";
+import spicyChickenChowmein from "../assets/Menu/Spicy Chicken Chowmein.png";
+import prawnChowmein from "../assets/Menu/Prawn Chowmein.png";
+import mohoSpecialChowmein from "../assets/Menu/Moho Special Chowmein.png";
+
+// Rice Bowls
+import crispyChickenRiceBowl from "../assets/Menu/Crispy Chicken Rice Bowl.png";
+import bbqChickenRiceBowl from "../assets/Menu/BBQ Chicken Rice Bowl.png";
+import mohoSpecialRiceBowl from "../assets/Menu/Moho Special Rice Bowl.png";
+
+// Set Menus
+import mohoSet01 from "../assets/Menu/Moho Set - 01.png";
+import mohoSet02 from "../assets/Menu/Moho Set - 02.png";
+import bbqChickenPlatter from "../assets/Menu/BBQ Chicken Platter.png";
+import jamaicanChickenPlatter from "../assets/Menu/Jamaican Chicken Platter.png";
+import mongolianBeefPlatter from "../assets/Menu/Mongolian Beef Platter.png";
+import mohoSpecialPlatter from "../assets/Menu/Moho Special Platter.png";
+import prawnTempura from "../assets/Menu/Prawn Tempura (6pcs).png";
+import streetFriedCalamari from "../assets/Menu/Street Fried Calamari (13).png";
+import shrimpRoll from "../assets/Menu/Shrimp Roll with chili oil (6pcs).png";
+import hongKongFriedChicken from "../assets/Menu/Hong Kong Fried Chicken (6pcs).png";
+import chickenBasilCurry from "../assets/Menu/Chicken Basil Curry.png";
+import chickenNanban from "../assets/Menu/Chicken Nanban (6pcs).png";
+
+// Main Course
+import chineseMixedVegetables from "../assets/Menu/Chinese Mixed Vegetables (13).png";
+import chickenVegetables from "../assets/Menu/Chicken Vegetables (13).png";
+import schezwanChicken from "../assets/Menu/Schezwan Chicken (13).png";
+import prawnMasala from "../assets/Menu/Prawn Masala (13).png";
+import chickenMongolianCurry from "../assets/Menu/Chicken Mongolian Curry (13).png";
+import chickenChilliOnion from "../assets/Menu/Chicken Chilli Onion (13).png";
+import eggFriedRice from "../assets/Menu/Egg Fried Rice (13).png";
+import mohoSpecialFriedRice from "../assets/Menu/Moho Special Fried Rice (13).png";
+
+// Salad
+import chickenCashewNutSalad from "../assets/Menu/Chicken Cashew Nut Salad.png";
+import grilledChickenSalad from "../assets/Menu/Grilled Chicken Salad.png";
+
+// Kebab & Tandoori
+import chickenBotiKebab from "../assets/Menu/Chicken Boti Kebab.png";
+import reshmiKebab from "../assets/Menu/Reshmi Kebab.png";
+import hariyaliKebab from "../assets/Menu/Hariyali Kebab.png";
+import chickenTandoori from "../assets/Menu/Chicken Tandoori.png";
+import smokeyBBQFish from "../assets/Menu/Smokey BBQ Fish.png";
+import tangdiKebab from "../assets/Menu/Tangdi Kebab with Makhanwala Gravy (6 pcs).png";
+import mohoSpecialPlatter4in1 from "../assets/Menu/Moho Special Platter (4-in-1 Combo).png";
+
+// Mocktails
+import virginMojito from "../assets/Menu/Virgin Mojito.png";
+import blueMoon from "../assets/Menu/Blue Moon.png";
+import tangyOrange from "../assets/Menu/Tangy Orange.png";
+import strawberryBlast from "../assets/Menu/Strawberry Blast.png";
+
+// Cold Coffee & Shakes
+import blackCoffee from "../assets/Menu/Black Coffee.png";
+import regularCoffee from "../assets/Menu/Regular Coffee.png";
+import chocoColdCoffee from "../assets/Menu/Choco Cold Coffee.png";
+import kitKatCrasher from "../assets/Menu/KitKat Crasher.png";
+import oreoCrasher from "../assets/Menu/Oreo Crasher.png";
+import vanillaMilkshake from "../assets/Menu/Vanilla Milkshake.png";
+
+// Signature Desserts
+import brownieBliss from "../assets/Menu/Brownie Bliss with Vanilla Ice Cream.png";
+import moltenLavaCake from "../assets/Menu/Molten Chocolate Lava Cake.png";
+import classicCreamyPudding from "../assets/Menu/Classic Creamy Pudding.png";
+
 const menuItems = [
-    {
-        "id": 1,
-        "category": "Starters",
-        "title": "French Fries",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=1"
-    },
-    {
-        "id": 2,
-        "category": "Starters",
-        "title": "Chicken Fry (1 pcs)",
-        "description": "",
-        "price": "৳ 90",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=2"
-    },
-    {
-        "id": 3,
-        "category": "Starters",
-        "title": "BBQ Wings (6 pcs)",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=3"
-    },
-    {
-        "id": 4,
-        "category": "Starters",
-        "title": "Crispy Wings (6 pcs)",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=4"
-    },
-    {
-        "id": 5,
-        "category": "Starters",
-        "title": "Chicken Lolipop (6 pcs)",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=5"
-    },
-    {
-        "id": 6,
-        "category": "Starters",
-        "title": "Fride Wonton (6 pcs)",
-        "description": "",
-        "price": "৳ 149",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=6"
-    },
-    {
-        "id": 7,
-        "category": "Starters",
-        "title": "Cheezy Nachos",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=7"
-    },
-    {
-        "id": 8,
-        "category": "Starters",
-        "title": "Thai Fried Chicken (4 pcs)",
-        "description": "",
-        "price": "৳ 350",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=8"
-    },
-    {
-        "id": 9,
-        "category": "Soup",
-        "title": "Thai Thick Soup (1:1 / 1:3)",
-        "description": "",
-        "price": "৳ 120 / 350",
-        "image": "https://loremflickr.com/800/600/soup,dish/all?lock=9"
-    },
-    {
-        "id": 10,
-        "category": "Soup",
-        "title": "Cream of Mushroom Soup (1:1 / 1:3)",
-        "description": "",
-        "price": "৳ 160 / 450",
-        "image": "https://loremflickr.com/800/600/soup,dish/all?lock=10"
-    },
-    {
-        "id": 11,
-        "category": "Burger",
-        "title": "Chicken Burger",
-        "description": "",
-        "price": "৳ 120",
-        "image": "https://loremflickr.com/800/600/burger,dish/all?lock=11"
-    },
-    {
-        "id": 12,
-        "category": "Burger",
-        "title": "Chicken Cheese Burger",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/burger,dish/all?lock=12"
-    },
-    {
-        "id": 13,
-        "category": "Burger",
-        "title": "BBQ Burger",
-        "description": "",
-        "price": "৳ 160",
-        "image": "https://loremflickr.com/800/600/burger,dish/all?lock=13"
-    },
-    {
-        "id": 14,
-        "category": "Burger",
-        "title": "Moho Special Burger (with Fries & Coke)",
-        "description": "",
-        "price": "৳ 250",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=14"
-    },
-    {
-        "id": 15,
-        "category": "Burger",
-        "title": "Chicken Sandwich (with Fries & Coke)",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=15"
-    },
-    {
-        "id": 16,
-        "category": "Momos",
-        "title": "Chicken Momo (6 pcs)",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/dumplings,dish/all?lock=16"
-    },
-    {
-        "id": 17,
-        "category": "Momos",
-        "title": "Cheese Momo (6 pcs)",
-        "description": "",
-        "price": "৳ 200",
-        "image": "https://loremflickr.com/800/600/dumplings,dish/all?lock=17"
-    },
-    {
-        "id": 18,
-        "category": "Momos",
-        "title": "Chili Oil Momo (6 pcs)",
-        "description": "",
-        "price": "৳ 239",
-        "image": "https://loremflickr.com/800/600/dumplings,dish/all?lock=18"
-    },
-    {
-        "id": 19,
-        "category": "Meatbox",
-        "title": "Chicken Meatbox",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=19"
-    },
-    {
-        "id": 20,
-        "category": "Meatbox",
-        "title": "Smoky Sausage Meatbox",
-        "description": "",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=20"
-    },
-    {
-        "id": 21,
-        "category": "Meatbox",
-        "title": "Moho Special BBQ Meatbox",
-        "description": "",
-        "price": "৳ 220",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=21"
-    },
-    {
-        "id": 22,
-        "category": "Pasta",
-        "title": "Pasta Basta",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/pasta,dish/all?lock=22"
-    },
-    {
-        "id": 23,
-        "category": "Pasta",
-        "title": "Creamy Alfredo Pasta",
-        "description": "",
-        "price": "৳ 200",
-        "image": "https://loremflickr.com/800/600/pasta,dish/all?lock=23"
-    },
-    {
-        "id": 24,
-        "category": "Pasta",
-        "title": "Moho Special Pasta",
-        "description": "",
-        "price": "৳ 250",
-        "image": "https://loremflickr.com/800/600/pasta,dish/all?lock=24"
-    },
-    {
-        "id": 25,
-        "category": "Ramen",
-        "title": "Spicy Korean Ramen",
-        "description": "",
-        "price": "৳ 250",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=25"
-    },
-    {
-        "id": 26,
-        "category": "Ramen",
-        "title": "Heroshi Ramen",
-        "description": "",
-        "price": "৳ 300",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=26"
-    },
-    {
-        "id": 27,
-        "category": "Ramen",
-        "title": "Moho Special Ramen",
-        "description": "",
-        "price": "৳ 350",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=27"
-    },
-    {
-        "id": 28,
-        "category": "Chowmein",
-        "title": "Regular Chowmein (1:1 / 1:3)",
-        "description": "",
-        "price": "৳ 120 / 299",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=28"
-    },
-    {
-        "id": 29,
-        "category": "Chowmein",
-        "title": "Spicy Chicken Chowmein (1:1 / 1:3)",
-        "description": "",
-        "price": "৳ 150 / 399",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=29"
-    },
-    {
-        "id": 30,
-        "category": "Chowmein",
-        "title": "Prawn Chowmein",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=30"
-    },
-    {
-        "id": 31,
-        "category": "Chowmein",
-        "title": "Moho Special Chowmein",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=31"
-    },
-    {
-        "id": 32,
-        "category": "Rice Bowls",
-        "title": "Crispy Chicken Rice Bowl",
-        "description": "",
-        "price": "৳ 130",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=32"
-    },
-    {
-        "id": 33,
-        "category": "Rice Bowls",
-        "title": "BBQ Chicken Rice Bowl",
-        "description": "",
-        "price": "৳ 150",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=33"
-    },
-    {
-        "id": 34,
-        "category": "Rice Bowls",
-        "title": "Moho Special Rice Bowl",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/rice,dish/all?lock=34"
-    },
-    {
-        "id": 35,
-        "category": "Set Menus",
-        "title": "Moho Set - 01",
-        "description": "Egg fried rice, thai fride chicken (2pcs), Chinese vegetable, and mix salad.",
-        "price": "৳ 159",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=35"
-    },
-    {
-        "id": 36,
-        "category": "Set Menus",
-        "title": "Moho Set - 02",
-        "description": "Egg fried rice, premium chicken katsu, Chinese vegetable, and mix salad.",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=36"
-    },
-    {
-        "id": 37,
-        "category": "Set Menus",
-        "title": "BBQ Chicken Platter",
-        "description": "Egg fried rice, guitar bbq chicken, Chinese vegetable and raita.",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=37"
-    },
-    {
-        "id": 38,
-        "category": "Set Menus",
-        "title": "Jamaican Chicken Platter",
-        "description": "Egg fried rice, Jamaican chicken, Chinese vegetable, and raita.",
-        "price": "৳ 250",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=38"
-    },
-    {
-        "id": 39,
-        "category": "Set Menus",
-        "title": "Mongolian Beef Platter",
-        "description": "Egg fried rice, Mongolian beef, Chinese vegetable, and raita.",
-        "price": "৳ 349",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=39"
-    },
-    {
-        "id": 40,
-        "category": "Set Menus",
-        "title": "Moho Special Platter",
-        "description": "Mix fried rice, peri peri chicken, BBQ wings (2pcs), Chinese vegetable, raita. PAN-ASIAN",
-        "price": "৳ 299",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=40"
-    },
-    {
-        "id": 41,
-        "category": "Set Menus",
-        "title": "Prawn Tempura (6pcs)",
-        "description": "",
-        "price": "৳ 250",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=41"
-    },
-    {
-        "id": 42,
-        "category": "Set Menus",
-        "title": "Street Fried Calamari (1:3)",
-        "description": "",
-        "price": "৳ 299",
-        "image": "https://loremflickr.com/800/600/appetizer,dish/all?lock=42"
-    },
-    {
-        "id": 43,
-        "category": "Set Menus",
-        "title": "Shrimp Roll with chili oil (6pcs)",
-        "description": "",
-        "price": "৳ 320",
-        "image": "https://loremflickr.com/800/600/noodles,dish/all?lock=43"
-    },
-    {
-        "id": 44,
-        "category": "Set Menus",
-        "title": "Hong Kong Fried Chicken (6pcs)",
-        "description": "",
-        "price": "৳ 320",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=44"
-    },
-    {
-        "id": 45,
-        "category": "Set Menus",
-        "title": "Chicken Basil Curry (1:3)",
-        "description": "",
-        "price": "৳ 349",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=45"
-    },
-    {
-        "id": 46,
-        "category": "Set Menus",
-        "title": "Chicken Nanban (6pcs)",
-        "description": "",
-        "price": "৳ 210",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=46"
-    },
-    {
-        "id": 47,
-        "category": "Main Course",
-        "title": "Chinese Mixed Vegetables (1:3)",
-        "description": "",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=47"
-    },
-    {
-        "id": 48,
-        "category": "Main Course",
-        "title": "Chicken Vegetables (1:3)",
-        "description": "",
-        "price": "৳ 220",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=48"
-    },
-    {
-        "id": 49,
-        "category": "Main Course",
-        "title": "Schezwan Chicken (1:3)",
-        "description": "",
-        "price": "৳ 280",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=49"
-    },
-    {
-        "id": 50,
-        "category": "Main Course",
-        "title": "Prawn Masala (1:3)",
-        "description": "",
-        "price": "৳ 320",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=50"
-    },
-    {
-        "id": 51,
-        "category": "Main Course",
-        "title": "Chicken Mongolian Curry (1:3)",
-        "description": "",
-        "price": "৳ 280",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=51"
-    },
-    {
-        "id": 52,
-        "category": "Main Course",
-        "title": "Chicken Chilli Onion (1:3)",
-        "description": "",
-        "price": "৳ 280",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=52"
-    },
-    {
-        "id": 53,
-        "category": "Main Course",
-        "title": "Egg Fried Rice (1:3)",
-        "description": "",
-        "price": "৳ 249",
-        "image": "https://loremflickr.com/800/600/rice,dish/all?lock=53"
-    },
-    {
-        "id": 54,
-        "category": "Main Course",
-        "title": "Moho Special Fried Rice (1:3)",
-        "description": "",
-        "price": "৳ 349",
-        "image": "https://loremflickr.com/800/600/rice,dish/all?lock=54"
-    },
-    {
-        "id": 55,
-        "category": "Salad",
-        "title": "Chicken Cashew Nut Salad",
-        "description": "",
-        "price": "৳ 349",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=55"
-    },
-    {
-        "id": 56,
-        "category": "Salad",
-        "title": "Grilled Chicken Salad",
-        "description": "",
-        "price": "৳ 299",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=56"
-    },
-    {
-        "id": 57,
-        "category": "Kebab & Tandoori",
-        "title": "Chicken Boti Kebab",
-        "description": "",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=57"
-    },
-    {
-        "id": 58,
-        "category": "Kebab & Tandoori",
-        "title": "Reshmi Kebab",
-        "description": "",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=58"
-    },
-    {
-        "id": 59,
-        "category": "Kebab & Tandoori",
-        "title": "Hariyali Kebab",
-        "description": "",
-        "price": "৳ 180",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=59"
-    },
-    {
-        "id": 60,
-        "category": "Kebab & Tandoori",
-        "title": "Chicken Tandoori",
-        "description": "",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=60"
-    },
-    {
-        "id": 61,
-        "category": "Kebab & Tandoori",
-        "title": "Smokey BBQ Fish",
-        "description": "",
-        "price": "৳ 299",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=61"
-    },
-    {
-        "id": 62,
-        "category": "Kebab & Tandoori",
-        "title": "Tangdi Kebab with Makhanwala Gravy (6 pcs)",
-        "description": "",
-        "price": "৳ 420",
-        "image": "https://loremflickr.com/800/600/meat,dish/all?lock=62"
-    },
-    {
-        "id": 63,
-        "category": "Kebab & Tandoori",
-        "title": "Moho Special Platter (4-in-1 Combo)",
-        "description": "",
-        "price": "৳ 699",
-        "image": "https://loremflickr.com/800/600/food,dish/all?lock=63"
-    },
-    {
-        "id": 64,
-        "category": "Mocktails",
-        "title": "Virgin Mojito",
-        "description": "",
-        "price": "৳ 149",
-        "image": "https://loremflickr.com/800/600/cocktail,dish/all?lock=64"
-    },
-    {
-        "id": 65,
-        "category": "Mocktails",
-        "title": "Blue Moon",
-        "description": "",
-        "price": "৳ 179",
-        "image": "https://loremflickr.com/800/600/cocktail,dish/all?lock=65"
-    },
-    {
-        "id": 66,
-        "category": "Mocktails",
-        "title": "Tangy Orange",
-        "description": "",
-        "price": "৳ 179",
-        "image": "https://loremflickr.com/800/600/cocktail,dish/all?lock=66"
-    },
-    {
-        "id": 67,
-        "category": "Mocktails",
-        "title": "Strawberry Blast",
-        "description": "",
-        "price": "৳ 179",
-        "image": "https://loremflickr.com/800/600/cocktail,dish/all?lock=67"
-    },
-    {
-        "id": 68,
-        "category": "Cold Coffee & Shakes",
-        "title": "Black Coffee",
-        "description": "",
-        "price": "৳ 40",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=68"
-    },
-    {
-        "id": 69,
-        "category": "Cold Coffee & Shakes",
-        "title": "Regular Coffee",
-        "description": "",
-        "price": "৳ 90",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=69"
-    },
-    {
-        "id": 70,
-        "category": "Cold Coffee & Shakes",
-        "title": "Choco Cold Coffee",
-        "description": "",
-        "price": "৳ 120",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=70"
-    },
-    {
-        "id": 71,
-        "category": "Cold Coffee & Shakes",
-        "title": "KitKat Crasher",
-        "description": "",
-        "price": "৳ 179",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=71"
-    },
-    {
-        "id": 72,
-        "category": "Cold Coffee & Shakes",
-        "title": "Oreo Crasher",
-        "description": "",
-        "price": "৳ 179",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=72"
-    },
-    {
-        "id": 73,
-        "category": "Cold Coffee & Shakes",
-        "title": "Vanilla Milkshake",
-        "description": "",
-        "price": "৳ 149",
-        "image": "https://loremflickr.com/800/600/coffee,dish/all?lock=73"
-    },
-    {
-        "id": 74,
-        "category": "Signature Desserts",
-        "title": "Brownie Bliss with Vanilla Ice Cream",
-        "description": "Warm Chocolate Brownie • Vanilla Ice Cream • Chocolate Drizzle",
-        "price": "৳ 249",
-        "image": "https://loremflickr.com/800/600/dessert,dish/all?lock=74"
-    },
-    {
-        "id": 75,
-        "category": "Signature Desserts",
-        "title": "Molten Chocolate Lava Cake",
-        "description": "Rich Chocolate Cake • Gooey Chocolate Center • Chocolate Sauce",
-        "price": "৳ 199",
-        "image": "https://loremflickr.com/800/600/dessert,dish/all?lock=75"
-    },
-    {
-        "id": 76,
-        "category": "Signature Desserts",
-        "title": "Classic Creamy Pudding",
-        "description": "Silky Smooth Pudding • Caramel Glaze • Delicate Sweetness",
-        "price": "৳ 120",
-        "image": "https://loremflickr.com/800/600/dessert,dish/all?lock=76"
-    }
+    { id: 1, category: "Starters", title: "French Fries", description: "", price: "৳ 150", image: frenchFries },
+    { id: 2, category: "Starters", title: "Chicken Fry (1 pcs)", description: "", price: "৳ 90", image: chickenFry },
+    { id: 3, category: "Starters", title: "BBQ Wings (6 pcs)", description: "", price: "৳ 199", image: bbqWings },
+    { id: 4, category: "Starters", title: "Crispy Wings (6 pcs)", description: "", price: "৳ 199", image: crispyWings },
+    { id: 5, category: "Starters", title: "Chicken Lolipop (6 pcs)", description: "", price: "৳ 199", image: chickenLolipop },
+    { id: 6, category: "Starters", title: "Fride Wonton (6 pcs)", description: "", price: "৳ 149", image: friedWonton },
+    { id: 7, category: "Starters", title: "Cheezy Nachos", description: "", price: "৳ 199", image: cheezyNachos },
+    { id: 8, category: "Starters", title: "Thai Fried Chicken (4 pcs)", description: "", price: "৳ 350", image: thaiFriedChicken },
+    { id: 9, category: "Soup", title: "Thai Thick Soup (1:1 / 1:3)", description: "", price: "৳ 120 / 350", image: thaiThickSoup },
+    { id: 10, category: "Soup", title: "Cream of Mushroom Soup (1:1 / 1:3)", description: "", price: "৳ 160 / 450", image: creamMushroomSoup },
+    { id: 11, category: "Burger", title: "Chicken Burger", description: "", price: "৳ 120", image: chickenBurger },
+    { id: 12, category: "Burger", title: "Chicken Cheese Burger", description: "", price: "৳ 150", image: chickenCheeseBurger },
+    { id: 13, category: "Burger", title: "BBQ Burger", description: "", price: "৳ 160", image: bbqBurger },
+    { id: 14, category: "Burger", title: "Moho Special Burger (with Fries & Coke)", description: "", price: "৳ 250", image: mohoSpecialBurger },
+    { id: 15, category: "Burger", title: "Chicken Sandwich (with Fries & Coke)", description: "", price: "৳ 199", image: chickenSandwich },
+    { id: 16, category: "Momos", title: "Chicken Momo (6 pcs)", description: "", price: "৳ 150", image: chickenMomo },
+    { id: 17, category: "Momos", title: "Cheese Momo (6 pcs)", description: "", price: "৳ 200", image: cheeseMomo },
+    { id: 18, category: "Momos", title: "Chili Oil Momo (6 pcs)", description: "", price: "৳ 239", image: chiliOilMomo },
+    { id: 19, category: "Meatbox", title: "Chicken Meatbox", description: "", price: "৳ 150", image: chickenMeatbox },
+    { id: 20, category: "Meatbox", title: "Smoky Sausage Meatbox", description: "", price: "৳ 180", image: smokySausageMeatbox },
+    { id: 21, category: "Meatbox", title: "Moho Special BBQ Meatbox", description: "", price: "৳ 220", image: mohoSpecialBBQMeatbox },
+    { id: 22, category: "Pasta", title: "Pasta Basta", description: "", price: "৳ 150", image: pastaBasta },
+    { id: 23, category: "Pasta", title: "Creamy Alfredo Pasta", description: "", price: "৳ 200", image: creamyAlfredoPasta },
+    { id: 24, category: "Pasta", title: "Moho Special Pasta", description: "", price: "৳ 250", image: mohoSpecialPasta },
+    { id: 25, category: "Ramen", title: "Spicy Korean Ramen", description: "", price: "৳ 250", image: spicyKoreanRamen },
+    { id: 26, category: "Ramen", title: "Heroshi Ramen", description: "", price: "৳ 300", image: heroshiRamen },
+    { id: 27, category: "Ramen", title: "Moho Special Ramen", description: "", price: "৳ 350", image: mohoSpecialRamen },
+    { id: 28, category: "Chowmein", title: "Regular Chowmein (1:1 / 1:3)", description: "", price: "৳ 120 / 299", image: regularChowmein },
+    { id: 29, category: "Chowmein", title: "Spicy Chicken Chowmein (1:1 / 1:3)", description: "", price: "৳ 150 / 399", image: spicyChickenChowmein },
+    { id: 30, category: "Chowmein", title: "Prawn Chowmein", description: "", price: "৳ 199", image: prawnChowmein },
+    { id: 31, category: "Chowmein", title: "Moho Special Chowmein", description: "", price: "৳ 199", image: mohoSpecialChowmein },
+    { id: 32, category: "Rice Bowls", title: "Crispy Chicken Rice Bowl", description: "", price: "৳ 130", image: crispyChickenRiceBowl },
+    { id: 33, category: "Rice Bowls", title: "BBQ Chicken Rice Bowl", description: "", price: "৳ 150", image: bbqChickenRiceBowl },
+    { id: 34, category: "Rice Bowls", title: "Moho Special Rice Bowl", description: "", price: "৳ 199", image: mohoSpecialRiceBowl },
+    { id: 35, category: "Set Menus", title: "Moho Set - 01", description: "Egg fried rice, thai fride chicken (2pcs), Chinese vegetable, and mix salad.", price: "৳ 159", image: mohoSet01 },
+    { id: 36, category: "Set Menus", title: "Moho Set - 02", description: "Egg fried rice, premium chicken katsu, Chinese vegetable, and mix salad.", price: "৳ 180", image: mohoSet02 },
+    { id: 37, category: "Set Menus", title: "BBQ Chicken Platter", description: "Egg fried rice, guitar bbq chicken, Chinese vegetable and raita.", price: "৳ 199", image: bbqChickenPlatter },
+    { id: 38, category: "Set Menus", title: "Jamaican Chicken Platter", description: "Egg fried rice, Jamaican chicken, Chinese vegetable, and raita.", price: "৳ 250", image: jamaicanChickenPlatter },
+    { id: 39, category: "Set Menus", title: "Mongolian Beef Platter", description: "Egg fried rice, Mongolian beef, Chinese vegetable, and raita.", price: "৳ 349", image: mongolianBeefPlatter },
+    { id: 40, category: "Set Menus", title: "Moho Special Platter", description: "Mix fried rice, peri peri chicken, BBQ wings (2pcs), Chinese vegetable, raita. PAN-ASIAN", price: "৳ 299", image: mohoSpecialPlatter },
+    { id: 41, category: "Set Menus", title: "Prawn Tempura (6pcs)", description: "", price: "৳ 250", image: prawnTempura },
+    { id: 42, category: "Set Menus", title: "Street Fried Calamari (1:3)", description: "", price: "৳ 299", image: streetFriedCalamari },
+    { id: 43, category: "Set Menus", title: "Shrimp Roll with chili oil (6pcs)", description: "", price: "৳ 320", image: shrimpRoll },
+    { id: 44, category: "Set Menus", title: "Hong Kong Fried Chicken (6pcs)", description: "", price: "৳ 320", image: hongKongFriedChicken },
+    { id: 45, category: "Set Menus", title: "Chicken Basil Curry (1:3)", description: "", price: "৳ 349", image: chickenBasilCurry },
+    { id: 46, category: "Set Menus", title: "Chicken Nanban (6pcs)", description: "", price: "৳ 210", image: chickenNanban },
+    { id: 47, category: "Main Course", title: "Chinese Mixed Vegetables (1:3)", description: "", price: "৳ 180", image: chineseMixedVegetables },
+    { id: 48, category: "Main Course", title: "Chicken Vegetables (1:3)", description: "", price: "৳ 220", image: chickenVegetables },
+    { id: 49, category: "Main Course", title: "Schezwan Chicken (1:3)", description: "", price: "৳ 280", image: schezwanChicken },
+    { id: 50, category: "Main Course", title: "Prawn Masala (1:3)", description: "", price: "৳ 320", image: prawnMasala },
+    { id: 51, category: "Main Course", title: "Chicken Mongolian Curry (1:3)", description: "", price: "৳ 280", image: chickenMongolianCurry },
+    { id: 52, category: "Main Course", title: "Chicken Chilli Onion (1:3)", description: "", price: "৳ 280", image: chickenChilliOnion },
+    { id: 53, category: "Main Course", title: "Egg Fried Rice (1:3)", description: "", price: "৳ 249", image: eggFriedRice },
+    { id: 54, category: "Main Course", title: "Moho Special Fried Rice (1:3)", description: "", price: "৳ 349", image: mohoSpecialFriedRice },
+    { id: 55, category: "Salad", title: "Chicken Cashew Nut Salad", description: "", price: "৳ 349", image: chickenCashewNutSalad },
+    { id: 56, category: "Salad", title: "Grilled Chicken Salad", description: "", price: "৳ 299", image: grilledChickenSalad },
+    { id: 57, category: "Kebab & Tandoori", title: "Chicken Boti Kebab", description: "", price: "৳ 180", image: chickenBotiKebab },
+    { id: 58, category: "Kebab & Tandoori", title: "Reshmi Kebab", description: "", price: "৳ 180", image: reshmiKebab },
+    { id: 59, category: "Kebab & Tandoori", title: "Hariyali Kebab", description: "", price: "৳ 180", image: hariyaliKebab },
+    { id: 60, category: "Kebab & Tandoori", title: "Chicken Tandoori", description: "", price: "৳ 199", image: chickenTandoori },
+    { id: 61, category: "Kebab & Tandoori", title: "Smokey BBQ Fish", description: "", price: "৳ 299", image: smokeyBBQFish },
+    { id: 62, category: "Kebab & Tandoori", title: "Tangdi Kebab with Makhanwala Gravy (6 pcs)", description: "", price: "৳ 420", image: tangdiKebab },
+    { id: 63, category: "Kebab & Tandoori", title: "Moho Special Platter (4-in-1 Combo)", description: "", price: "৳ 699", image: mohoSpecialPlatter4in1 },
+    { id: 64, category: "Mocktails", title: "Virgin Mojito", description: "", price: "৳ 149", image: virginMojito },
+    { id: 65, category: "Mocktails", title: "Blue Moon", description: "", price: "৳ 179", image: blueMoon },
+    { id: 66, category: "Mocktails", title: "Tangy Orange", description: "", price: "৳ 179", image: tangyOrange },
+    { id: 67, category: "Mocktails", title: "Strawberry Blast", description: "", price: "৳ 179", image: strawberryBlast },
+    { id: 68, category: "Cold Coffee & Shakes", title: "Black Coffee", description: "", price: "৳ 40", image: blackCoffee },
+    { id: 69, category: "Cold Coffee & Shakes", title: "Regular Coffee", description: "", price: "৳ 90", image: regularCoffee },
+    { id: 70, category: "Cold Coffee & Shakes", title: "Choco Cold Coffee", description: "", price: "৳ 120", image: chocoColdCoffee },
+    { id: 71, category: "Cold Coffee & Shakes", title: "KitKat Crasher", description: "", price: "৳ 179", image: kitKatCrasher },
+    { id: 72, category: "Cold Coffee & Shakes", title: "Oreo Crasher", description: "", price: "৳ 179", image: oreoCrasher },
+    { id: 73, category: "Cold Coffee & Shakes", title: "Vanilla Milkshake", description: "", price: "৳ 149", image: vanillaMilkshake },
+    { id: 74, category: "Signature Desserts", title: "Brownie Bliss with Vanilla Ice Cream", description: "Warm Chocolate Brownie • Vanilla Ice Cream • Chocolate Drizzle", price: "৳ 249", image: brownieBliss },
+    { id: 75, category: "Signature Desserts", title: "Molten Chocolate Lava Cake", description: "Rich Chocolate Cake • Gooey Chocolate Center • Chocolate Sauce", price: "৳ 199", image: moltenLavaCake },
+    { id: 76, category: "Signature Desserts", title: "Classic Creamy Pudding", description: "Silky Smooth Pudding • Caramel Glaze • Delicate Sweetness", price: "৳ 120", image: classicCreamyPudding },
 ];
 
 const categories = ["All","Starters","Soup","Burger","Momos","Meatbox","Pasta","Ramen","Chowmein","Rice Bowls","Set Menus","Main Course","Salad","Kebab & Tandoori","Mocktails","Cold Coffee & Shakes","Signature Desserts"];
@@ -677,59 +253,62 @@ const Products = () => {
 
             {/* Product Details Modal */}
             {selectedProduct && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity" onClick={() => setSelectedProduct(null)}></div>
-                    <div className="relative bg-[#f5f0eb] rounded-[2rem] shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row transform transition-all duration-300">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" onClick={() => setSelectedProduct(null)}>
+                    <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                    <div 
+                        className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         
+                        {/* Close Button */}
                         <button 
                             onClick={() => setSelectedProduct(null)}
-                            className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-md p-2 rounded-full text-[#2d3e2f] hover:text-red-500 hover:bg-white shadow-sm transition-colors"
+                            className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-md w-8 h-8 flex items-center justify-center rounded-full text-gray-600 hover:bg-red-500 hover:text-white shadow-md transition-all duration-200"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                         
-                        {/* Image Section */}
-                        <div className="w-full md:w-1/2 h-64 sm:h-72 md:h-auto relative">
+                        {/* Image - shows full picture, no cropping */}
+                        <div className="w-full md:w-1/2 bg-[#1c0a0c] flex items-center justify-center">
                             <img 
                                 src={selectedProduct.image} 
                                 alt={selectedProduct.title} 
-                                className="w-full h-full object-cover" 
+                                className="w-full h-auto block" 
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/20" />
                         </div>
                         
-                        {/* Content Section */}
-                        <div className="w-full md:w-1/2 p-8 sm:p-10 flex flex-col justify-center bg-white overflow-y-auto">
-                            <span className="text-[#d4a574] text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
-                                <span className="w-6 h-px bg-[#d4a574]"></span>
-                                {selectedProduct.category}
-                            </span>
+                        {/* Content */}
+                        <div className="w-full md:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-y-auto">
+                            <div className="flex items-center gap-2 mb-4">
+                                <span className="w-8 h-[2px] bg-[#d4a574]"></span>
+                                <span className="text-[#d4a574] text-[11px] font-bold uppercase tracking-[0.2em]">
+                                    {selectedProduct.category}
+                                </span>
+                            </div>
                             
-                            <h2 className="text-3xl sm:text-4xl font-bold text-[#2d3e2f] mb-4 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2d3e2f] mb-4 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
                                 {selectedProduct.title}
                             </h2>
                             
-                            <p className="text-3xl font-bold text-[#d4a574] mb-8 pb-8 border-b border-[#2d3e2f]/10">
+                            <p className="text-2xl sm:text-3xl font-bold text-[#d4a574] mb-6 pb-6 border-b border-gray-200">
                                 {selectedProduct.price}
                             </p>
                             
-                            <div className="mb-10 flex-grow">
-                                <h4 className="text-sm font-semibold text-[#2d3e2f] uppercase tracking-wider mb-3">About this dish</h4>
-                                <p className="text-base-content/70 leading-relaxed font-light">
+                            <div className="mb-8">
+                                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">About this dish</h4>
+                                <p className="text-gray-500 leading-relaxed text-sm">
                                     {selectedProduct.description || `Enjoy our incredibly delicious ${selectedProduct.title.toLowerCase()}, carefully crafted by our chefs with premium ingredients for the perfect taste experience.`}
                                 </p>
                             </div>
                             
-                            <div className="flex gap-4">
-                                <button className="flex-1 bg-[#2d3e2f] hover:bg-[#1a251c] text-white py-4 px-6 rounded-xl font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-[#2d3e2f]/20 transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                    </svg>
-                                    Order Now
-                                </button>
-                            </div>
+                            <button className="w-full bg-[#2d3e2f] hover:bg-[#1a251c] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm transition-all duration-300 shadow-lg shadow-[#2d3e2f]/20 hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                </svg>
+                                Order Now
+                            </button>
                         </div>
                     </div>
                 </div>
