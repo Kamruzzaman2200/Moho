@@ -3,22 +3,41 @@ import { NavLink, useNavigate } from "react-router-dom"
 import loginRegImg from "../assets/login reg img.png"
 import useAuth from "../hooks/useAuth"
 import { useForm } from "react-hook-form"
+import Swal from "sweetalert2"
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 const {CreateUser, GoogleLogin} = useAuth();
 const { register, handleSubmit, watch, formState: { errors } } = useForm();
 const navigate = useNavigate();
+const password = watch("password");
 
   const onSubmit = (data) => {
     CreateUser(data.email, data.password)
     .then((userCredential) => {
         console.log("User created:", userCredential.user);
-        navigate("/");
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your account has been created successfully.',
+            icon: 'success',
+            confirmButtonColor: '#2d3e2f'
+        }).then(() => {
+            navigate("/");
+        });
     })
     .catch((error) => {
         console.error("Error creating user:", error);
-        alert(error.message);
+        let errorMessage = "Something went wrong";
+        if (error.code === 'auth/email-already-in-use') errorMessage = "This email is already in use.";
+        if (error.code === 'auth/weak-password') errorMessage = "Password is too weak.";
+        
+        Swal.fire({
+            title: 'Registration Failed',
+            text: errorMessage,
+            icon: 'error',
+            confirmButtonColor: '#2d3e2f'
+        });
     });
   }
 
@@ -117,7 +136,7 @@ const navigate = useNavigate();
                   {...register("confirmPassword", { 
                     required: "Please confirm your password",
                     validate: (val) => {
-                      if (watch('password') != val) {
+                      if (password != val) {
                         return "Passwords do not match";
                       }
                     }

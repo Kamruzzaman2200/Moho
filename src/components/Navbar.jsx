@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom"
 import logo from "../assets/logo.png"
 import useAuth from "../hooks/useAuth"
 import { UserDropdown } from "./home/UserDropdown";
+import { useCart } from "../contexts/CartContext";
 
 const Navbar = () => {
 
   const {user} = useAuth();
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
 
   // Common style for NavLinks to handle active state dynamically
   const navLinkClass = ({ isActive }) =>
@@ -55,7 +58,22 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
+        {/* Cart Icon */}
+        <NavLink
+          to="/cart"
+          className="btn btn-ghost btn-circle hover:bg-[#2d3e2f]/5 relative"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#2d3e2f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+          </svg>
+          {cartCount > 0 && (
+            <span className="absolute -top-1 -right-1 bg-[#d4a574] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm animate-bounce">
+              {cartCount > 99 ? "99+" : cartCount}
+            </span>
+          )}
+        </NavLink>
+
         {user ? (
           <UserDropdown />
         ) : (

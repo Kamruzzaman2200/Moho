@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import loginRegImg from "../assets/login reg img.png"
 import useAuth from "../hooks/useAuth"
 import { useForm } from "react-hook-form"
+import Swal from "sweetalert2"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,11 +15,28 @@ const Login = () => {
     EmailLogin(data.email, data.password)
     .then((userCredential) => {
         console.log("User logged in:", userCredential.user);
-        navigate("/");
+        Swal.fire({
+            title: 'Welcome back!',
+            text: 'You have logged in successfully.',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+        }).then(() => {
+            navigate("/");
+        });
     })
     .catch((error) => {
         console.error("Error logging in:", error);
-        alert(error.message);
+        let errorMessage = "Invalid email or password";
+        if (error.code === 'auth/user-not-found') errorMessage = "No user found with this email.";
+        if (error.code === 'auth/wrong-password') errorMessage = "Incorrect password.";
+        
+        Swal.fire({
+            title: 'Login Failed',
+            text: errorMessage,
+            icon: 'error',
+            confirmButtonColor: '#2d3e2f'
+        });
     });
   }
 
